@@ -15,7 +15,6 @@
 
 #define MIDI_END_TRACK    0x2F
 
-#define EVENT_MSG_TYPE(EVENT) ((EVENT) & 0xF0)
 #define EVENT_HAS_SECOND_PARAM(EVENT) ((EVENT).type != MIDI_PROGRAM_CHANGE && (EVENT).type != MIDI_CHANNEL_PRESSURE)
 
 /*----------------------------------------------------------------------*/

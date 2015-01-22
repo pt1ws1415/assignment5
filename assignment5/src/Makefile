@@ -7,7 +7,7 @@ $(OUTDIR)/%:
 	@mkdir -p $(OUTDIR)
 	$(CC) $(LOADLIBES) $(LDFLAGS) $^ -o $@
 
-.PHONY: all clean
+.PHONY: all clean $(PROGRAMS:%=$(OUTDIR)/%)
 
 #----------------------------------------------------------------
 # 1.I   Finds all source files in that folder and below
