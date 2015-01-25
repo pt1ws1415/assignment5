@@ -15,3 +15,16 @@ $(OUTDIR)/%:
 # All other targets are just passed on
 %:
 	$(RUN_REC_MAKE) $@	
+
+# Added by @TimNN
+# These rules are required because otherwise $OUTDIR/* will be assumed
+# up to date as long as the file exists
+# As make does not allow implicit rules to be .PHONY we define an
+# explict rule for each file in $OUTDIR.
+
+TARGETS = $(shell find $(OUTDIR) -type f)
+
+.PHONY: $(TARGETS)
+
+$(TARGETS):
+	$(RUN_REC_MAKE) ../$@
